@@ -1,4 +1,9 @@
-const API_BASE = import.meta.env.VITE_API_URL || "/api";
+// Local: Vite proxies /api → localhost:5000
+// Production: talk to the deployed Express API
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD ? "https://shop-co-api.vercel.app/api" : "/api");
+
 
 const GUEST_KEY = "shopco_guest_id";
 const TOKEN_KEY = "shopco_token";
